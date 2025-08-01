@@ -1,17 +1,15 @@
 
-import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
+import os
+from dotenv import load_dotenv
+load_dotenv()
+# Instantiate the model
+model = ChatGoogleGenerativeAI(
+    model='gemini-1.5-flash-latest',
+    temperature=1
+)
+result = model.invoke('write five line poem on great india')
 
-# ✅ Insert your API key here
-os.environ["GOOGLE_API_KEY"] = "google api key"
-
-# ✅ Create the model instance
-model = ChatGoogleGenerativeAI(model='gemini-2.5-flash')  # or 'gemini-1.5-pro' if supported
-
-# ✅ Invoke the model
-result = model.invoke('What is the capital of India?')
-
-# ✅ Print the result
 print(result.content)
 
