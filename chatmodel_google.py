@@ -7,7 +7,7 @@ load_dotenv()
 # Instantiate the model
 model = ChatGoogleGenerativeAI(
     model='gemini-1.5-flash-latest',
-    temperature=1
+    temperature=0
 )
 result = model.invoke('write five line poem on great india')
 
